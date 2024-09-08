@@ -23,4 +23,9 @@ class Car extends Model
     {
         return $this->hasMany(ServiceLog::class);
     }
+
+     public function latestServiceLog()
+    {
+        return $this->hasOne(ServiceLog::class)->latest('updated_at');
+    }
 }

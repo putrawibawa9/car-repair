@@ -12,7 +12,9 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
+        // return the car with user and latest status
+        $cars = Car::with('user', 'latestServiceLog')->get();
+        return view('admin.dashboard', compact('cars'));
     }
 
     /**
@@ -36,7 +38,8 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        //
+        $car->load('user', 'serviceLogs');
+        return view('admin.statusUpdate', compact('car'));
     }
 
     /**
@@ -52,7 +55,10 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        //
+        $car->serviceLogs()->create($request->all());
+        // return to the dashboard
+        return redirect()->route('cars.index');
+     
     }
 
     /**
