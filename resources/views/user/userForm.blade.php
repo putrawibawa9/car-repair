@@ -9,7 +9,6 @@
 <body>
     <div class="container">
         <h1>Check Your Car Service Status</h1>
-        
         <!-- Form to search car status by username -->
         <form
          action="{{ route('result') }}"
@@ -19,6 +18,11 @@
             <input type="text" id="username" name="email" placeholder="Your Email" required>
             <button type="submit">Check Status</button>
         </form>
+        <br>
+        <a href="/registration" style="color: white; background-color: #0B2F9F; padding: 10px 20px; text-decoration: none; border-radius: 4px; font-weight: bold;">
+    Register Your Car Here
+</a>
+
     </div>
 </body>
 </html>
